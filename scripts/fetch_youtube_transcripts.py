@@ -288,65 +288,120 @@ def existing_ids(records: Iterable[TranscriptRecord]) -> set[tuple[str, str]]:
     return {(r.channel, r.video_id) for r in records if r.video_id and r.video_id != "unknown"}
 
 
-def download_caption(video: Video) -> tuple[list[TranscriptRecord], str | None]:
-    if not which("yt-dlp"):
-        return [], "yt-dlp not installed"
-    channel_dir = TRANSCRIPTS / video.channel / "ytdlp"
-    vtt_dir = channel_dir / "vtt"
+def download_transcript_ai(video: Video) -> tuple[list[TranscriptRecord], str | None]:
+    """Fallback to a no-key GET endpoint that returns Markdown transcripts.
+
+    This is deliberately a fallback, not the primary source: VTT captions from YouTube/yt-dlp
+    preserve timing and raw caption structure better. But on cloud IPs where YouTube blocks
+    direct caption extraction, https://youtube-transcript.ai/transcript/{VIDEO_ID}.txt is a
+    practical no-auth workaround for public videos with captions.
+    """
+    import urllib.error
+    import urllib.request
+
+    channel_dir = TRANSCRIPTS / video.channel / "transcript_ai"
+    md_dir = channel_dir / "markdown"
     txt_dir = channel_dir / "text"
-    vtt_dir.mkdir(parents=True, exist_ok=True)
+    md_dir.mkdir(parents=True, exist_ok=True)
     txt_dir.mkdir(parents=True, exist_ok=True)
     title_part = safe_name(video.title or video.id, 140)
-    outtmpl = str(vtt_dir / f"{title_part}-{video.id}.%(ext)s")
-    url = video.url or f"https://www.youtube.com/watch?v={video.id}"
-    before = set(vtt_dir.glob(f"*{video.id}*.vtt"))
-    cmd = [
-        "yt-dlp",
-        "--skip-download",
-        "--write-subs",
-        "--write-auto-subs",
-        "--sub-langs", "en,en.*,en-US,en-GB",
-        "--sub-format", "vtt/best",
-        "--convert-subs", "vtt",
-        "--ignore-errors",
-        "--no-abort-on-error",
-        "--retries", "5",
-        "--fragment-retries", "5",
-        "--sleep-requests", "1",
-        "--sleep-subtitles", "1",
-        "-o", outtmpl,
-        url,
-    ]
-    cp = run(cmd, capture=True)
-    log_file = LOGS / f"download_{video.channel}_{video.id}.log"
-    log_file.write_text("$ " + " ".join(cmd) + "\n\nSTDOUT:\n" + (cp.stdout or "") + "\nSTDERR:\n" + (cp.stderr or ""), encoding="utf-8")
-    after = set(vtt_dir.glob(f"*{video.id}*.vtt"))
-    new_files = sorted(after - before) or sorted(after)
-    records: list[TranscriptRecord] = []
-    for vtt in new_files:
-        if vtt.stat().st_size == 0:
-            continue
-        txt = write_text_copy(vtt, txt_dir)
-        records.append(TranscriptRecord(
-            channel=video.channel,
-            video_id=video.id,
-            title=video.title or vtt.stem,
-            url=url,
-            source=video.source,
-            vtt_path=str(vtt.relative_to(ROOT)),
-            txt_path=str(txt.relative_to(ROOT)),
-            bytes=vtt.stat().st_size,
-            status="downloaded",
-        ))
-    if records:
-        return records, None
-    reason = "no English caption file produced"
-    log_text = (cp.stdout or "") + "\n" + (cp.stderr or "")
-    for marker in ["Sign in to confirm", "No subtitles", "no subtitles", "Private video", "Video unavailable", "This video is unavailable", "HTTP Error 429"]:
-        if marker in log_text:
-            reason = marker
-            break
-    return [], reason
+    source_url = f"https://youtube-transcript.ai/transcript/{video.id}.txt?lang=en"
+    md_path = md_dir / f"{title_part}-{video.id}.md"
+    txt_path = txt_dir / f"{title_part}-{video.id}.txt"
+    try:
+        req = urllib.request.Request(source_url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=45) as response:
+            content = response.read().decode("utf-8", errors="replace")
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        (LOGS / f"transcript_ai_{video.channel}_{video.id}.log").write_text(
+            f"URL: {source_url}\nERROR: {type(exc).__name__}: {exc}\n", encoding="utf-8"
+        )
+        return [], f"transcript.ai fallback failed: {type(exc).__name__}: {exc}"
+    if "## Transcript" not in content or len(content.strip()) < 200:
+        (LOGS / f"transcript_ai_{video.channel}_{video.id}.log").write_text(
+            f"URL: {source_url}\nUnexpected/empty response:\n{content[:1000]}\n", encoding="utf-8"
+        )
+        return [], "transcript.ai returned no transcript"
+    md_path.write_text(content.rstrip() + "\n", encoding="utf-8")
+    # Text copy: strip the Markdown metadata header but keep timestamps/words.
+    transcript = content.split("## Transcript", 1)[-1].strip()
+    txt_path.write_text(transcript + "\n", encoding="utf-8")
+    return [TranscriptRecord(
+        channel=video.channel,
+        video_id=video.id,
+        title=video.title,
+        url=video.url or f"https://www.youtube.com/watch?v={video.id}",
+        source=f"youtube-transcript.ai no-key fallback ({source_url})",
+        vtt_path=str(md_path.relative_to(ROOT)),
+        txt_path=str(txt_path.relative_to(ROOT)),
+        bytes=md_path.stat().st_size,
+        status="downloaded-fallback-markdown",
+    )], None
+
+
+def download_caption(video: Video) -> tuple[list[TranscriptRecord], str | None]:
+    yt_dlp_reason = "yt-dlp not installed"
+    if which("yt-dlp"):
+        channel_dir = TRANSCRIPTS / video.channel / "ytdlp"
+        vtt_dir = channel_dir / "vtt"
+        txt_dir = channel_dir / "text"
+        vtt_dir.mkdir(parents=True, exist_ok=True)
+        txt_dir.mkdir(parents=True, exist_ok=True)
+        title_part = safe_name(video.title or video.id, 140)
+        outtmpl = str(vtt_dir / f"{title_part}-{video.id}.%(ext)s")
+        url = video.url or f"https://www.youtube.com/watch?v={video.id}"
+        before = set(vtt_dir.glob(f"*{video.id}*.vtt"))
+        cmd = [
+            "yt-dlp",
+            "--skip-download",
+            "--write-subs",
+            "--write-auto-subs",
+            "--sub-langs", "en,en.*,en-US,en-GB",
+            "--sub-format", "vtt/best",
+            "--convert-subs", "vtt",
+            "--ignore-errors",
+            "--no-abort-on-error",
+            "--retries", "5",
+            "--fragment-retries", "5",
+            "--sleep-requests", "1",
+            "--sleep-subtitles", "1",
+            "-o", outtmpl,
+            url,
+        ]
+        cp = run(cmd, capture=True)
+        log_file = LOGS / f"download_{video.channel}_{video.id}.log"
+        log_file.write_text("$ " + " ".join(cmd) + "\n\nSTDOUT:\n" + (cp.stdout or "") + "\nSTDERR:\n" + (cp.stderr or ""), encoding="utf-8")
+        after = set(vtt_dir.glob(f"*{video.id}*.vtt"))
+        new_files = sorted(after - before) or sorted(after)
+        records: list[TranscriptRecord] = []
+        for vtt in new_files:
+            if vtt.stat().st_size == 0:
+                continue
+            txt = write_text_copy(vtt, txt_dir)
+            records.append(TranscriptRecord(
+                channel=video.channel,
+                video_id=video.id,
+                title=video.title or vtt.stem,
+                url=url,
+                source=video.source,
+                vtt_path=str(vtt.relative_to(ROOT)),
+                txt_path=str(txt.relative_to(ROOT)),
+                bytes=vtt.stat().st_size,
+                status="downloaded",
+            ))
+        if records:
+            return records, None
+        yt_dlp_reason = "no English caption file produced"
+        log_text = (cp.stdout or "") + "\n" + (cp.stderr or "")
+        for marker in ["Sign in to confirm", "No subtitles", "no subtitles", "Private video", "Video unavailable", "This video is unavailable", "HTTP Error 429"]:
+            if marker in log_text:
+                yt_dlp_reason = marker
+                break
+
+    fallback_records, fallback_reason = download_transcript_ai(video)
+    if fallback_records:
+        return fallback_records, None
+    return [], f"{yt_dlp_reason}; {fallback_reason}"
 
 
 def write_csv(records: list[TranscriptRecord], missing: list[dict]) -> None:
@@ -432,8 +487,9 @@ def write_markdown(records: list[TranscriptRecord], missing: list[dict], videos:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--skip-ytdlp", action="store_true", help="Only copy/archive existing public transcript sources; do not call YouTube.")
-    parser.add_argument("--refresh-archive-ids", action="store_true", help="Also yt-dlp-download videos already covered by the Exurb1a archive.")
+    parser.add_argument("--skip-ytdlp", action="store_true", help="Only copy/archive existing public transcript sources; do not call YouTube or transcript fallbacks.")
+    parser.add_argument("--transcript-ai-only", action="store_true", help="Skip yt-dlp and use the no-key youtube-transcript.ai fallback for videos not already archived.")
+    parser.add_argument("--refresh-archive-ids", action="store_true", help="Also fetch videos already covered by the Exurb1a archive.")
     args = parser.parse_args()
 
     LOGS.mkdir(parents=True, exist_ok=True)
@@ -454,7 +510,7 @@ def main() -> int:
             if (v.channel, v.id) in covered and not args.refresh_archive_ids:
                 continue
             print(f"Fetching captions: {v.channel} {v.id} {v.title}")
-            records, reason = download_caption(v)
+            records, reason = download_transcript_ai(v) if args.transcript_ai_only else download_caption(v)
             if records:
                 all_records.extend(records)
                 for r in records:

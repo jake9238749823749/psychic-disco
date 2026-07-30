@@ -18,7 +18,8 @@ The raw `.vtt` caption files are preserved first; cleaned `.txt` copies are prov
 2. Download **only** public English captions/subtitles with `yt-dlp --skip-download --write-subs --write-auto-subs --sub-langs en,en.*`.
 3. Preserve raw `.vtt` files exactly as obtained, then generate `.txt` copies from those files.
 4. Seed older Exurb1a captions from the public `HACKER097/exurbia-video-finder` VTT archive to avoid losing older community-preserved captions.
-5. Do not use private cookies, private YouTube sessions, or bypassed credentials.
+5. Workaround for cloud/IP blocks: run `python scripts/fetch_youtube_transcripts.py --transcript-ai-only` to use the no-key `https://youtube-transcript.ai/transcript/VIDEO_ID.txt?lang=en` fallback. Direct links for `@sxrawn` are in [`transcripts/SXRAWN_WORKAROUND.md`](transcripts/SXRAWN_WORKAROUND.md).
+6. Do not use private cookies, private YouTube sessions, or bypassed credentials.
 
 ## Files
 
