@@ -1,8 +1,8 @@
 {
-  "timestamp": 1787468997.1498742,
-  "action": "welcome",
-  "params": {
-    "message": "Arena.ai iPhone Bridge initialized successfully!"
+  "timestamp": 1787470216.8068607,
+  "action": "speak",
+  "payload": {
+    "text": "Hello from Arena AI Agent! Your shortcut bridge is working."
   },
-  "status": "pending"
+  "status": "ready"
 }
