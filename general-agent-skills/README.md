@@ -1,6 +1,6 @@
-# Claude General Skills Library — v2
+# General Agent Skills Library — v2
 
-Fifteen general-purpose skills drafted by Claude Fable 5 (July 6, 2026) so any Claude model — Sonnet, Opus, future models — can inherit the same working standards. Each skill is a folder with a `SKILL.md` (open Agent Skills format), plus reference files, templates, and append-only log files that act as persistent memory.
+Fifteen general-purpose skills for agentic AI systems to inherit consistent working standards. Each skill is a folder with a `SKILL.md` (open Agent Skills format), plus reference files, templates, and append-only log files that act as persistent memory.
 
 ## The library
 
@@ -26,9 +26,9 @@ Fifteen general-purpose skills drafted by Claude Fable 5 (July 6, 2026) so any C
 
 ## What changed in v2 (and why)
 
-Based on Anthropic's engineering write-up of running hundreds of internal skills, plus community skill-library patterns:
+Based on field-tested skill-library patterns from production agent deployments and community practice:
 
-- **Gotchas sections** — Anthropic's team calls gotchas the highest-signal content in a skill, built up from real failures. Key skills now carry seeded Gotchas sections that `skill-maintenance` grows over time.
+- **Gotchas sections** — real failure patterns are the highest-signal content in a skill. Key skills now carry seeded Gotchas sections that `skill-maintenance` grows over time.
 - **Grow-from-failures model** — their best skills started as a few lines plus one gotcha. `skill-maintenance` (new) operationalizes exactly that loop, with an append-only `corrections.log`.
 - **Memory inside skills** — skills can persist state in simple log files that future sessions read. `decision-analysis` now keeps `decisions.log`; `skill-maintenance` keeps `corrections.log`.
 - **Handoffs** — `session-handoff` (new) preserves reasoning across sessions and model switches; templates live in `assets/`.
@@ -43,16 +43,16 @@ Based on Anthropic's engineering write-up of running hundreds of internal skills
 
 ## Install
 
-**Claude Code (recommended):** copy skill folders into `~/.claude/skills/` (applies across all projects):
+Copy the skill folders into the skills directory used by your agent environment:
 
 ```bash
-unzip claude-general-skills-v2.zip
-cp -r claude-general-skills/*/ ~/.claude/skills/
+unzip general-agent-skills-v2.zip
+cp -r general-agent-skills/*/ <agent-skills-dir>/
 ```
 
-For one project only, use `<repo>/.claude/skills/`. SKILL.md edits take effect live in a running session. The `.log` files inside skills are writable working memory — keep them with the skill folders.
+For one project only, copy the folders into that project's skills directory. SKILL.md edits take effect live in environments that reload skills during a running session. The `.log` files inside skills are writable working memory — keep them with the skill folders.
 
-**Claude apps:** individual `.skill` files can be saved as custom skills where supported.
+If your platform supports packaged skills, each skill folder can be packaged or imported individually.
 
 ## Before enabling — review checklist
 
@@ -62,5 +62,5 @@ For one project only, use `<repo>/.claude/skills/`. SKILL.md edits take effect l
 ## Personalize (highest value first)
 
 1. `writing-standards/references/voice-samples.md` — paste 2–3 real samples of your writing.
-2. `model-routing` — adjust the ladder to your plan's models and limits.
+2. `model-routing` — adjust the ladder to your available model tiers, pricing, and limits.
 3. Let `skill-maintenance` do the rest: every correction you make becomes a one-line permanent upgrade.
