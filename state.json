@@ -1,8 +1,8 @@
 {
-  "timestamp": 1787470216.8068607,
-  "action": "speak",
+  "timestamp": 1787470225.7189968,
+  "action": "open_url",
   "payload": {
-    "text": "Hello from Arena AI Agent! Your shortcut bridge is working."
+    "url": "https://arena.ai"
   },
   "status": "ready"
 }
