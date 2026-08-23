@@ -1,0 +1,140 @@
+{
+  "collection_window_utc": {
+    "started": "2026-08-23T23:34:05Z",
+    "ended": "2026-08-23T23:38:30Z"
+  },
+  "purpose": "First-session public-data snapshot. Values are intentionally timestamped and must not be treated as live later.",
+  "solana": {
+    "sol_usd": {
+      "value": 95.4109975562656,
+      "block_id": 441267334,
+      "source": "https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112",
+      "fetched_utc": "2026-08-23T23:35:xxZ"
+    },
+    "dex_volume": {
+      "total24h_usd": 3732294477.7,
+      "total7d_usd": 17478586110.55,
+      "total30d_usd": 52944617993.57,
+      "change_1d_pct": 3.65,
+      "change_7d_pct": 219.26,
+      "change_1m_pct": 152.8,
+      "source": "https://api.llama.fi/overview/dexs/Solana?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true"
+    },
+    "pump": {
+      "aggregate_fees_24h_usd": 4818619,
+      "aggregate_fees_7d_usd": 32896040,
+      "aggregate_fees_30d_usd": 115409547,
+      "source": "https://api.llama.fi/summary/fees/pump",
+      "definition": "Parent protocol metric; includes bonded-curve fees and linked Pump products under DefiLlama's stated methodology. Do not back out volume by dividing by one fee rate."
+    },
+    "pumpswap": {
+      "dex_volume_24h_usd": 570006150,
+      "dex_volume_7d_usd": 3983745122,
+      "dex_volume_30d_usd": 17769594792,
+      "source": "https://api.llama.fi/summary/dexs/pumpswap",
+      "definition": "DefiLlama's DEX-volume metric filters to pools with TVL >= $5,000 and at least 50 unique traders. It is not all Pump bonding-curve volume.",
+      "share_of_solana_dex_volume_pct": 15.27
+    },
+    "venues": {
+      "raydium_24h_usd": 275915744,
+      "meteora_24h_usd": 395864321,
+      "source": "https://api.llama.fi/summary/dexs/raydium and https://api.llama.fi/summary/dexs/meteora"
+    },
+    "fee_environment": {
+      "solana_base_fee_lamports_per_signature": 5000,
+      "raydium_auto_fee_micro_lamports_per_cu": {
+        "medium": 10000,
+        "high": 15000,
+        "very_high": 20000
+      },
+      "jito_tip_floor_sol": {
+        "time": "2026-08-23T23:35:42+00:00",
+        "p25": 0.000001,
+        "p50": 0.000003282,
+        "p75": 0.00001,
+        "p95": 0.0007994766,
+        "p99": 0.00217848118
+      },
+      "sources": [
+        "https://solana.com/docs/core/fees",
+        "https://api-v3.raydium.io/main/auto-fee",
+        "https://bundles.jito.wtf/api/v1/bundles/tip_floor"
+      ]
+    }
+  },
+  "cross_chain_dex_volume": {
+    "definition": "DefiLlama total DEX volume, not a memecoin-only statistic.",
+    "total24h_usd": {
+      "Solana": 3732294477.7,
+      "BSC": 1562366935.55,
+      "Ethereum": 1477118171.04,
+      "Base": 1275415411.43,
+      "Arbitrum": 366964902.76
+    },
+    "source_template": "https://api.llama.fi/overview/dexs/{chain}?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true"
+  },
+  "cross_chain_transaction_costs": {
+    "Base": {
+      "fetched_utc": "2026-08-23T23:37:47Z",
+      "standard_swap_usd": 0.002,
+      "rapid_swap_usd": 0.003,
+      "source": "https://basescan.org/gastracker"
+    },
+    "BSC": {
+      "fetched_utc": "2026-08-23T23:37:42Z",
+      "standard_swap_usd": 0.007,
+      "source": "https://bscscan.com/gastracker"
+    },
+    "Ethereum": {
+      "fetched_utc": "2026-08-23T23:38:26Z",
+      "standard_swap_usd": 0.037,
+      "rapid_swap_usd": 0.038,
+      "source": "https://etherscan.io/gastracker"
+    }
+  },
+  "protocol_fee_sources": {
+    "pump": {
+      "bonding_curve_total_fee_pct": 1.25,
+      "bonding_curve_creator_fee_pct": 0.3,
+      "bonding_curve_protocol_fee_pct": 0.95,
+      "graduation_fee_sol": 0.015,
+      "canonical_pumpswap_fee_pct_at_0_to_420_sol_market_cap": 1.25,
+      "noncanonical_pumpswap_fee_pct": 0.3,
+      "source": "https://pump.fun/docs/fees",
+      "important_definition": "Official Pump fee schedule updated 2026-05-20. This supersedes using a generic 0.3% PumpSwap adapter description for a small canonical pool."
+    },
+    "raydium": {
+      "typical_cpmm_fee_pct": 0.25,
+      "clmm_fee_tiers_pct": [0.01, 0.05, 0.25, 1.0],
+      "launchlab_bonding_curve_example_protocol_fee_pct": 0.25,
+      "source": "https://docs.raydium.io/raydium/build/tips-and-gotchas/launchlab-and-cpmm-fee-reference"
+    },
+    "meteora": {
+      "post_migration_fee_options_pct": [0.25, 0.3, 1.0, 2.0],
+      "source": "https://docs.meteora.ag/integration/dynamic-bonding-curve-dbc-integration/dbc-sdk/dbc-rust-sdk",
+      "important_definition": "Meteora DBC fees are configuration-dependent; never apply a single fee to every pool."
+    },
+    "jupiter": {
+      "metis_default_protocol_fee_pct": 0.0,
+      "ultra_default_fee_bps_observed_on_sol_usdc_quote": 2,
+      "source": "https://dev.jup.ag/docs/swap/add-fees-to-swap and live Jupiter Ultra order snapshot",
+      "important_definition": "Aggregator fee and routing differ by API/product, pair, and route. Quote immediately before an execution decision."
+    }
+  },
+  "accessed_data_systems": [
+    "DefiLlama public API (DEX volumes, fees and methodologies)",
+    "Jupiter public price / swap quote / Ultra order APIs",
+    "Raydium public auto-fee API",
+    "Jito public bundle tip-floor API",
+    "DexScreener public profiles, boosts and token-pair API",
+    "GeckoTerminal public new-pool API",
+    "RugCheck public token report API",
+    "Solana / Pump / Raydium / Meteora / Jupiter official documentation",
+    "Zenodo, arXiv, SSRN and GitHub public research artifacts"
+  ],
+  "known_collection_constraints": [
+    "This environment could GET public APIs through the web fetch channel but could not POST direct Solana RPC JSON-RPC calls from the shell, so account-aware current priority-fee samples, direct transaction simulation, and raw holder transaction graphs were not collected.",
+    "No authenticated Birdeye, Helius, Dune, X, Telegram, GMGN or Bubblemaps API credential was available. Vendor labels and social counts were therefore not substituted with guesses.",
+    "Live prices, liquidity and fees can change materially after this window; every live candidate must be refreshed before any future recommendation."
+  ]
+}

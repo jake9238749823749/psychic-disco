@@ -1,0 +1,431 @@
+{
+  "descriptive_by_label": {
+    "0": {
+      "avg_trade_size_30min": {
+        "mean": 133.1596905657744,
+        "median": 106.08619882153779,
+        "n": 31417,
+        "p25": 58.423596290769986,
+        "p75": 166.99021888081,
+        "p90": 251.58334716366696,
+        "p99": 628.0448867520322
+      },
+      "buy_sell_ratio_2h": {
+        "mean": 1.3045584262610024,
+        "median": 1.0580204778156996,
+        "n": 31417,
+        "p25": 1.0,
+        "p75": 1.3055555555555556,
+        "p90": 1.7285102332222797,
+        "p99": 4.333333333333333
+      },
+      "buy_sell_ratio_30min": {
+        "mean": 1.3920971820886963,
+        "median": 1.103448275862069,
+        "n": 31417,
+        "p25": 1.0,
+        "p75": 1.3333333333333333,
+        "p90": 2.0,
+        "p99": 5.0
+      },
+      "launch_dayofweek": {
+        "mean": 2.894738517363211,
+        "median": 3.0,
+        "n": 31417,
+        "p25": 1.0,
+        "p75": 4.0,
+        "p90": 6.0,
+        "p99": 6.0
+      },
+      "launch_hour_utc": {
+        "mean": 12.369958939427699,
+        "median": 13.0,
+        "n": 31417,
+        "p25": 6.0,
+        "p75": 19.0,
+        "p90": 22.0,
+        "p99": 23.0
+      },
+      "max_single_buy_30min": {
+        "mean": 587.7597670664221,
+        "median": 388.26,
+        "n": 31417,
+        "p25": 216.236481486,
+        "p75": 683.3904238167601,
+        "p90": 1102.746122084161,
+        "p99": 3971.3806976
+      },
+      "n_trades_30min": {
+        "mean": 115.52872648566063,
+        "median": 24.0,
+        "n": 31417,
+        "p25": 15.0,
+        "p75": 51.0,
+        "p90": 185.0,
+        "p99": 2049.6800000000003
+      },
+      "top1_wallet_pct_2h": {
+        "mean": 0.5497785172337026,
+        "median": 0.5568060633371651,
+        "n": 31417,
+        "p25": 0.30943634587450924,
+        "p75": 0.790045501056307,
+        "p90": 0.9574233479195347,
+        "p99": 1.0
+      },
+      "top1_wallet_pct_30min": {
+        "mean": 0.550748524447939,
+        "median": 0.558292350250358,
+        "n": 31417,
+        "p25": 0.3125250955736518,
+        "p75": 0.7910257678693132,
+        "p90": 0.9574468082698053,
+        "p99": 1.0
+      },
+      "unique_buyers_2h": {
+        "mean": 17.656046089696662,
+        "median": 6.0,
+        "n": 31417,
+        "p25": 4.0,
+        "p75": 13.0,
+        "p90": 38.0,
+        "p99": 222.84000000000015
+      },
+      "unique_buyers_30min": {
+        "mean": 16.836203329407645,
+        "median": 6.0,
+        "n": 31417,
+        "p25": 4.0,
+        "p75": 12.0,
+        "p90": 37.0,
+        "p99": 202.0
+      },
+      "unique_sellers_30min": {
+        "mean": 14.632873921762103,
+        "median": 5.0,
+        "n": 31417,
+        "p25": 3.0,
+        "p75": 10.0,
+        "p90": 32.0,
+        "p99": 171.84000000000015
+      },
+      "volume_2h": {
+        "mean": 2567.044841805894,
+        "median": 756.0045951959,
+        "n": 31417,
+        "p25": 374.1572880189,
+        "p75": 1949.2155003766602,
+        "p90": 6559.488325078995,
+        "p99": 26318.607990988297
+      },
+      "volume_first_30min": {
+        "mean": 2432.912144788444,
+        "median": 745.0313925004999,
+        "n": 31417,
+        "p25": 371.34825140392,
+        "p75": 1888.87175834136,
+        "p90": 6373.96754590921,
+        "p99": 23972.61416826413
+      }
+    },
+    "1": {
+      "avg_trade_size_30min": {
+        "mean": 576.4632596499877,
+        "median": 190.27854668583043,
+        "n": 583,
+        "p25": 124.02744057332623,
+        "p75": 369.39391138181423,
+        "p90": 889.8115296299258,
+        "p99": 16435.32714473191
+      },
+      "buy_sell_ratio_2h": {
+        "mean": 4.360868705060798,
+        "median": 2.1578947368421053,
+        "n": 583,
+        "p25": 1.2884615384615385,
+        "p75": 4.19375,
+        "p90": 9.0,
+        "p99": 49.041428571428284
+      },
+      "buy_sell_ratio_30min": {
+        "mean": 5.115355583796422,
+        "median": 2.2028985507246377,
+        "n": 583,
+        "p25": 1.3131470388341842,
+        "p75": 4.079658605974396,
+        "p90": 9.488888888888892,
+        "p99": 64.31846153846145
+      },
+      "launch_dayofweek": {
+        "mean": 3.0017152658662094,
+        "median": 3.0,
+        "n": 583,
+        "p25": 1.0,
+        "p75": 5.0,
+        "p90": 6.0,
+        "p99": 6.0
+      },
+      "launch_hour_utc": {
+        "mean": 12.608919382504288,
+        "median": 14.0,
+        "n": 583,
+        "p25": 6.0,
+        "p75": 19.0,
+        "p90": 21.0,
+        "p99": 23.0
+      },
+      "max_single_buy_30min": {
+        "mean": 3210.4985675264306,
+        "median": 2085.31428405156,
+        "n": 583,
+        "p25": 1182.024674969825,
+        "p75": 3450.374637874215,
+        "p90": 7213.708221948792,
+        "p99": 19615.885399999952
+      },
+      "n_trades_30min": {
+        "mean": 940.6620926243568,
+        "median": 398.0,
+        "n": 583,
+        "p25": 111.0,
+        "p75": 1034.0,
+        "p90": 2561.0000000000005,
+        "p99": 6620.1999999999825
+      },
+      "top1_wallet_pct_2h": {
+        "mean": 0.16838139633013108,
+        "median": 0.08578392154096696,
+        "n": 583,
+        "p25": 0.05348535155500612,
+        "p75": 0.1649089440281369,
+        "p90": 0.4590546288058298,
+        "p99": 1.0
+      },
+      "top1_wallet_pct_30min": {
+        "mean": 0.17970704265426105,
+        "median": 0.09240052809608013,
+        "n": 583,
+        "p25": 0.05474329350434204,
+        "p75": 0.18073631857298159,
+        "p90": 0.49815326156138584,
+        "p99": 1.0
+      },
+      "unique_buyers_2h": {
+        "mean": 175.0566037735849,
+        "median": 110.0,
+        "n": 583,
+        "p25": 41.5,
+        "p75": 248.5,
+        "p90": 412.00000000000034,
+        "p99": 800.18
+      },
+      "unique_buyers_30min": {
+        "mean": 149.41852487135506,
+        "median": 100.0,
+        "n": 583,
+        "p25": 35.0,
+        "p75": 213.5,
+        "p90": 329.0,
+        "p99": 723.3199999999988
+      },
+      "unique_sellers_30min": {
+        "mean": 83.6655231560892,
+        "median": 35.0,
+        "n": 583,
+        "p25": 7.0,
+        "p75": 105.0,
+        "p90": 246.60000000000014,
+        "p99": 503.01999999999805
+      },
+      "volume_2h": {
+        "mean": 35218.479417007,
+        "median": 23855.02308029403,
+        "n": 583,
+        "p25": 19548.92606819804,
+        "p75": 42119.532596071556,
+        "p90": 71051.85175175375,
+        "p99": 131177.45201577
+      },
+      "volume_first_30min": {
+        "mean": 30923.33755183759,
+        "median": 22399.70898884427,
+        "n": 583,
+        "p25": 18537.014642168026,
+        "p75": 37192.88190173019,
+        "p90": 60009.094945693534,
+        "p99": 121391.59765553726
+      }
+    }
+  },
+  "illustrative_threshold_graduation_rates": {
+    "max_single_buy_30min_>=_10000": {
+      "feature": "max_single_buy_30min",
+      "graduated": 42,
+      "n": 102,
+      "operator": ">=",
+      "rate": 0.4117647058823529,
+      "threshold": 10000.0,
+      "wilson95": [
+        0.3211503544990474,
+        0.5087841891964372
+      ]
+    },
+    "n_trades_30min_>=_400": {
+      "feature": "n_trades_30min",
+      "graduated": 291,
+      "n": 1937,
+      "operator": ">=",
+      "rate": 0.1502323180175529,
+      "threshold": 400.0,
+      "wilson95": [
+        0.13501337958424664,
+        0.16683588003590988
+      ]
+    },
+    "top1_wallet_pct_30min_<=_0.25": {
+      "feature": "top1_wallet_pct_30min",
+      "graduated": 478,
+      "n": 6797,
+      "operator": "<=",
+      "rate": 0.07032514344563778,
+      "threshold": 0.25,
+      "wilson95": [
+        0.06448592056537408,
+        0.0766497882857187
+      ]
+    },
+    "unique_buyers_30min_>=_100": {
+      "feature": "unique_buyers_30min",
+      "graduated": 292,
+      "n": 1239,
+      "operator": ">=",
+      "rate": 0.23567393058918482,
+      "threshold": 100.0,
+      "wilson95": [
+        0.21288055051112256,
+        0.26010136448110166
+      ]
+    },
+    "volume_first_30min_>=_10000": {
+      "feature": "volume_first_30min",
+      "graduated": 524,
+      "n": 2422,
+      "operator": ">=",
+      "rate": 0.21635012386457472,
+      "threshold": 10000.0,
+      "wilson95": [
+        0.2004074806356919,
+        0.23319115169050778
+      ]
+    }
+  },
+  "not_estimated": [
+    "post-cost tradable winner labels",
+    "MFE/MAE barriers",
+    "wallet independence",
+    "deployer linkage",
+    "slippage or failed-transaction costs",
+    "out-of-time calibrated probabilities",
+    "strategy expectancy or ruin probability"
+  ],
+  "point_in_time_audit": {
+    "has_exact_ordering_field": false,
+    "temporal_split_permitted": false,
+    "timestamp_like_fields": [],
+    "warning": "Graduation association is not a tradeable-return label. A dataset without exact creation order cannot validate a chronological split. A full first-30-minute feature window also cannot be used for a pre-graduation decision if the coin may graduate inside that window; verify lifecycle timing before treating model scores as signals."
+  },
+  "source": {
+    "columns": [
+      "avg_trade_size_30min",
+      "buy_sell_ratio_2h",
+      "buy_sell_ratio_30min",
+      "graduated",
+      "launch_dayofweek",
+      "launch_hour_utc",
+      "launch_month",
+      "max_single_buy_30min",
+      "mint",
+      "n_trades_30min",
+      "top1_wallet_pct_2h",
+      "top1_wallet_pct_30min",
+      "unique_buyers_2h",
+      "unique_buyers_30min",
+      "unique_sellers_30min",
+      "volume_2h",
+      "volume_first_30min"
+    ],
+    "path": "/tmp/pumpfun-graduation-prediction/data/pumpfun_training_dataset.parquet",
+    "sha256": "ee5412658b8af19d776028d0158963b77f1ab3ca4f476ae4b6cf6080bbfff07c"
+  },
+  "top_decile_graduation_rates": {
+    "buy_sell_ratio_30min": {
+      "cutoff": 2.0,
+      "graduated": 318,
+      "n": 3743,
+      "rate": 0.08495858936681806,
+      "wilson95": [
+        0.0764461304757964,
+        0.09432212404555831
+      ]
+    },
+    "max_single_buy_30min": {
+      "cutoff": 1181.6150000000002,
+      "graduated": 437,
+      "n": 3200,
+      "rate": 0.1365625,
+      "wilson95": [
+        0.12509975627900732,
+        0.14889681084216372
+      ]
+    },
+    "n_trades_30min": {
+      "cutoff": 213.0,
+      "graduated": 376,
+      "n": 3205,
+      "rate": 0.11731669266770671,
+      "wilson95": [
+        0.10663108117124344,
+        0.1289185950732929
+      ]
+    },
+    "top1_wallet_pct_30min": {
+      "cutoff": 0.9559934560375193,
+      "graduated": 13,
+      "n": 3200,
+      "rate": 0.0040625,
+      "wilson95": [
+        0.0023757091832337196,
+        0.006938608977813943
+      ]
+    },
+    "unique_buyers_30min": {
+      "cutoff": 41.0,
+      "graduated": 422,
+      "n": 3254,
+      "rate": 0.12968653964351567,
+      "wilson95": [
+        0.11857838515659112,
+        0.14166803075264156
+      ]
+    },
+    "volume_first_30min": {
+      "cutoff": 7430.686747218258,
+      "graduated": 534,
+      "n": 3200,
+      "rate": 0.166875,
+      "wilson95": [
+        0.1543569210808779,
+        0.18019195299579305
+      ]
+    }
+  },
+  "universe": {
+    "base_rate": 0.01821875,
+    "base_rate_wilson95": [
+      0.016810156586210212,
+      0.01974300520671654
+    ],
+    "positives": 583,
+    "rows": 32000
+  }
+}

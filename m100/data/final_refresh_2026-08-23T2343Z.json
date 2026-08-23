@@ -1,0 +1,87 @@
+{
+  "request_completed_utc": "2026-08-23T23:43:15Z",
+  "purpose": "Mandatory immediate refresh before the first-session NO TRADE decision. This is a final screen, not a recommendation.",
+  "sol": {
+    "usd_price": 95.09109655000256,
+    "block_id": 441268409,
+    "source": "https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112"
+  },
+  "priority_fee": {
+    "raydium_micro_lamports_per_cu": {"medium": 10000, "high": 15000, "very_high": 20000},
+    "source": "https://api-v3.raydium.io/main/auto-fee"
+  },
+  "jito_tip_floor": {
+    "timestamp_utc": "2026-08-23T23:41:39Z",
+    "p25_sol": 0.000001003,
+    "p50_sol": 0.000002451,
+    "p75_sol": 0.000006,
+    "p95_sol": 0.0000591232,
+    "p99_sol": 0.00082832,
+    "source": "https://bundles.jito.wtf/api/v1/bundles/tip_floor"
+  },
+  "candidates": {
+    "ANSEMLEEK": {
+      "mint": "HTU9qkrjohLo4GBzBCzQDt7UPNh8fnZK3otjYH8Wpump",
+      "pair": "Dd8n77oL742GFrjJoTHZKKcLwiEzDKMnzqZtY1e3GNhA",
+      "venue": "PumpSwap",
+      "pair_created_utc": "2026-08-23T23:34:33Z",
+      "price_usd": 0.000002809,
+      "market_cap_usd": 2809,
+      "liquidity_usd": 2678.98,
+      "volume_5m_usd": 23911.74,
+      "transactions_5m": {"buys": 164, "sells": 315},
+      "price_change_5m_pct": -93.41,
+      "price_change_1h_pct": -92.74,
+      "rugcheck": {
+        "mint_authority": null,
+        "freeze_authority": null,
+        "transfer_fee_config": null,
+        "transfer_hook": null,
+        "permanent_delegate": null,
+        "risk": "Low Liquidity",
+        "reported_low_liquidity_value_usd": 518.34,
+        "top_holder_is_pool_pct": 80.08170648096426
+      },
+      "decision": "REJECTED: extreme post-refresh collapse, low liquidity, no wallet-independence or sellability proof."
+    },
+    "NALA": {
+      "mint": "62seDepNrRkMjXwVyF1UACxcQT8WFBeW7QMUxyCLpump",
+      "venue": "PumpSwap",
+      "price_usd": 0.000001903,
+      "market_cap_usd": 1903,
+      "liquidity_usd": 1969.04,
+      "volume_5m_usd": 1.62,
+      "transactions_5m": {"buys": 0, "sells": 3},
+      "price_change_1h_pct": -95.66,
+      "decision": "REJECTED: low liquidity, no current buying, collapse."
+    },
+    "OCTO": {
+      "mint": "9z2x2MaVqhN9AQ65ESA8gAY9Tn5HTq7tGn6CXuppump",
+      "venue": "Pump.fun bonding curve",
+      "price_usd": 0.00002022,
+      "market_cap_usd": 20222.28,
+      "volume_5m_usd": 923.9,
+      "transactions_5m": {"buys": 10, "sells": 6},
+      "active_paid_boost": 500,
+      "decision": "REJECTED: paid discovery signal, unmeasured linked-wallet and social independence, no validated strategy."
+    },
+    "DIESEL": {
+      "mint": "4gbqirCDG4pJXPMgZMJJNj2u73G9puZwkK3pbPgTpump",
+      "venue": "Pump.fun bonding curve",
+      "price_usd": 0.00001011,
+      "market_cap_usd": 10113.15,
+      "volume_5m_usd": 26.12,
+      "transactions_5m": {"buys": 3, "sells": 3},
+      "decision": "REJECTED: insufficient live flow and no validated setup."
+    }
+  },
+  "limitations": [
+    "DexScreener transaction counts are not independent-wallet counts.",
+    "RugCheck technical fields and risk labels are a first-pass gate, not safety proof or funding graph.",
+    "No live buy/sell quote was constructed or broadcast for any candidate."
+  ],
+  "sources": [
+    "https://api.dexscreener.com/token-pairs/v1/solana/{mint}",
+    "https://api.rugcheck.xyz/v1/tokens/{mint}/report"
+  ]
+}
