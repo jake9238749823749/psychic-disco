@@ -1,0 +1,4 @@
+# Append-only corrections log. Format: <date> | what went wrong | owning skill | proposed rule
+# Read this before periodic reviews. Promote repeated entries into skill Gotchas.
+
+2026-07-06 | (seed entry) library created; no incidents yet | skill-maintenance | delete this line at first real entry

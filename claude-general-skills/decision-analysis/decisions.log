@@ -1,0 +1,2 @@
+# Append-only decision log. Five lines per entry: decision / date / options considered / reasoning / expected outcome + review date.
+# Scan before analyzing new decisions; compare expected vs. actual on past ones.
