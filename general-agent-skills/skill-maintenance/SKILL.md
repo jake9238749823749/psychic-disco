@@ -5,7 +5,7 @@ description: Turn corrections and costly mistakes into permanent one-line upgrad
 
 # Skill Maintenance
 
-Anthropic's finding from running hundreds of internal skills: the best ones started as a few lines and a single gotcha, then grew one real failure at a time. Skills written to anticipate everything upfront bloat and railroad. This skill is the growth mechanism for the whole library.
+A recurring pattern from production skill libraries: the best skills start as a few lines and a single gotcha, then grow one real failure at a time. Skills written to anticipate everything upfront bloat and railroad. This skill is the growth mechanism for the whole library.
 
 ## The loop
 
@@ -14,7 +14,7 @@ Anthropic's finding from running hundreds of internal skills: the best ones star
    `<date> | what went wrong | owning skill | proposed rule`
    The log is append-only memory; future sessions read it to spot patterns.
 3. **Propose** a one-or-two-line Gotcha for the owning skill's SKILL.md. Show the exact diff. Never edit a skill silently.
-4. **Apply on approval.** Edits to a SKILL.md take effect live in a running Claude Code session.
+4. **Apply on approval.** In environments that reload skills live, SKILL.md edits can take effect during a running session.
 
 ## Rule quality bar
 

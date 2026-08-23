@@ -1,6 +1,6 @@
 ---
 name: model-routing
-description: Choose the right Claude model (Sonnet, Opus, Fable) for a task and write briefs that get near-top-tier results from cheaper models. Use whenever the user asks which model to use, mentions usage limits, credits, cost, or rate limits, asks to draft a prompt or brief for another model or session, or starts multi-phase work where exploration and final execution could run on different tiers — even if they don't say the word "model."
+description: Choose the right model tier for a task and write briefs that get near-top-tier results from cheaper models. Use whenever the user asks which model to use, mentions usage limits, credits, cost, or rate limits, asks to draft a prompt or brief for another model or session, or starts multi-phase work where exploration and final execution could run on different tiers — even if they don't say the word "model."
 ---
 
 # Model Routing
@@ -11,9 +11,9 @@ Route every task to the cheapest model that clears the quality bar. Escalate on 
 
 | Tier | Use for | Examples |
 |------|---------|----------|
-| Sonnet (default) | Routine, well-specified work | Boilerplate, refactors, test generation, summaries, first drafts, formatting, extraction |
-| Opus | Hard reasoning, ambiguity, stakes | Architecture decisions, gnarly debugging, important documents, multi-constraint planning |
-| Fable (metered) | Work that would justify a senior contractor | Whole-codebase changes, final pass on high-stakes deliverables, problems two Opus attempts failed on |
+| Cheap/fast (default) | Routine, well-specified work | Boilerplate, refactors, test generation, summaries, first drafts, formatting, extraction |
+| Strong | Hard reasoning, ambiguity, stakes | Architecture decisions, gnarly debugging, important documents, multi-constraint planning |
+| Frontier (metered) | Work that would justify a senior contractor | Whole-codebase changes, final pass on high-stakes deliverables, problems two Strong-tier attempts failed on |
 
 ## Escalation triggers (go UP a tier)
 
