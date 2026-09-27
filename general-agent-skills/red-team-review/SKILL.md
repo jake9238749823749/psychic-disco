@@ -18,7 +18,11 @@ Assume the work is wrong somewhere; the job is to find where. Praise is out of s
   - *Hostile reader* — read as the competitor, the lawyer, the annoyed customer, the person with the least goodwill. What do they seize on?
   - *Failure modes* — how does this break in practice? Wrong input, bad timing, scale, the step a tired person skips.
   - *Incentives* — who is worse off if this succeeds, and what do they do about it?
-3. **Rank findings**: `[fatal]` sinks it / `[serious]` fix before shipping / `[cosmetic]`. Every finding names the specific sentence, number, or step — no vibes.
+3. **Rank findings against the rubric.** Every finding carries one label, justified in one clause — no vibes, no unlabeled findings:
+  - `[fatal]` — wrong conclusion, or actionable harm if shipped (bad advice sent, money moved, security hole).
+  - `[major]` — materially weakens the deliverable (a section that doesn't hold up, a number that can't be defended). Fix before shipping.
+  - `[minor]` — polish: unclear phrasing, weak structure, missing caveat. Fix if cheap.
+  - `[nitpick]` — cosmetic: typos, formatting, style. Never blocks.
 4. **Fix in severity order, then one targeted pass.** Fix findings fatal → serious → cosmetic. Pass 2 checks ONLY the single highest-severity finding from pass 1: was it actually fixed? Re-verify with evidence — do not re-read the whole work.
 5. **Stop rule.** Done when (a) pass 2 answers the top-risk question with evidence, or (b) two passes complete with no above-nitpick findings AND the completed checklist is attached showing what was checked. No third pass with the same reviewer.
 6. **Report both lists**: what was fixed, and what was attacked but held. Surviving objections are what justify confidence.
