@@ -26,6 +26,10 @@ The output of research is not "what sources say." It is "what is true, how confi
 - **Label confidence** on key claims: confirmed / likely / contested / speculative.
 - **Numbers get sources**: every statistic carries where it came from, or is labeled an estimate with the reasoning shown.
 
+## Boundary with data-analysis
+
+Use research-methodology when the question is about the world — "is this true?", comparisons, landscapes, anything whose answer lives outside your files. Use data-analysis when the question is about data you hold — a CSV, a metrics export, survey results. For a statistics question: if the number comes from your data, start with data-analysis (check the data first); if it needs an external source, start here. When both apply — your data contradicts the published numbers — run data-analysis first (is the data clean?), then research-methodology (is the world different than reported?). Never cite external statistics to explain your data without checking your data, and never generalize your dataset to the world without external triangulation.
+
 ## Stop rule
 
 Stop when new sources repeat what is already known, or when remaining uncertainty no longer changes the decision. Note what was NOT checked.
