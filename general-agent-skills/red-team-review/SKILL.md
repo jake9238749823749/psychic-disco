@@ -19,8 +19,9 @@ Assume the work is wrong somewhere; the job is to find where. Praise is out of s
   - *Failure modes* — how does this break in practice? Wrong input, bad timing, scale, the step a tired person skips.
   - *Incentives* — who is worse off if this succeeds, and what do they do about it?
 3. **Rank findings**: `[fatal]` sinks it / `[serious]` fix before shipping / `[cosmetic]`. Every finding names the specific sentence, number, or step — no vibes.
-4. **Fix and re-run.** Iterate until new findings degrade to nitpicks. That degradation, not a clean first pass, is the done signal.
-5. **Report both lists**: what was fixed, and what was attacked but held. Surviving objections are what justify confidence.
+4. **Fix in severity order, then one targeted pass.** Fix findings fatal → serious → cosmetic. Pass 2 checks ONLY the single highest-severity finding from pass 1: was it actually fixed? Re-verify with evidence — do not re-read the whole work.
+5. **Stop rule.** Done when (a) pass 2 answers the top-risk question with evidence, or (b) two passes complete with no above-nitpick findings AND the completed checklist is attached showing what was checked. No third pass with the same reviewer.
+6. **Report both lists**: what was fixed, and what was attacked but held. Surviving objections are what justify confidence.
 
 ## Rules
 
@@ -32,3 +33,4 @@ Assume the work is wrong somewhere; the job is to find where. Praise is out of s
 
 - Severity inflation makes reports unusable. Most findings are cosmetic; label them honestly or the fatal ones get ignored too.
 - The most dangerous flaw is usually in the sentence the author is proudest of. Check it first.
+- A pass that finds nothing without a completed checklist is not a pass — it is a skipped pass. Findings that get weaker across passes is evidence of reviewer fatigue, not work quality: stop and escalate to a fresh session instead of running a third pass with the same reviewer.
