@@ -23,7 +23,7 @@ A result missing any of the four is incomplete. Do not integrate it.
 - **Independently check load-bearing claims.** Re-run the key command, open the key file, count the key items. The worker's evidence tells you *where* to look, not *what* you'll find.
 - **Spot-check, don't re-do.** Verify the 1–2 claims everything else rests on. Full re-execution defeats the purpose of delegating.
 - **Distrust the format.** A clean, well-structured worker report is not evidence of correct work. Polished wrongness is the common failure mode.
-- **Never self-verify.** If you wrote the brief and ran the worker, your own second read of its output is not verification — hand the check to a separate session, an independent agent, or a deterministic check (tests, linters, a second run).
+- **Never self-verify.** If you wrote the brief and ran the worker, your own second read of its output is not verification — and neither is a second run of the same procedure by you. Same author, same method, same blind spots: that is self-verification with extra steps, and it is forbidden. Independent means a different session, a different agent instance, or a deterministic check *mechanically different* from the worker's method (tests, linters, re-execution with different inputs).
 
 ## Failure protocol
 
