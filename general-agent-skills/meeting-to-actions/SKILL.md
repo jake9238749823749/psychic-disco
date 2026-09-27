@@ -7,6 +7,16 @@ description: Turn meeting notes, call transcripts, or voice-memo dumps into deci
 
 A meeting summary is a contract draft. Precision about who agreed to what matters more than polish.
 
+## Why this is a standalone skill
+
+Merge candidacy was considered and decided (v2.3): this content could live as a `business-docs/references/` page plus `output-standards` integrity rules. It stays separate for three reasons:
+
+1. **The integrity rules are more enforceable than the general principle.** `output-standards` says "no silent assumptions." This skill says exactly what to do instead: mark `UNASSIGNED`, mark `NO DEADLINE`, keep `[unclear — confirm]`, keep commitment phrasing verbatim, never upgrade "I'll try" to "will deliver." Each is checkable in a way the general rule is not.
+2. **This is a pipeline, not a document.** `business-docs` owns formats (what the finished doc looks like). This skill owns extraction (how an unstructured transcript becomes decisions and actions). Different job, different failure modes.
+3. **Narrow trigger, narrow load.** It fires only on meeting notes and transcripts. Merging it into `business-docs` would tax every status update and proposal with extraction rules they never need.
+
+Thin is not the same as redundant. If this skill's Gotchas stay seeded past 90 days with no real incidents, revisit the merge — thinness without field evidence is the actual merge signal.
+
 ## Extract in this order
 
 1. **Decisions made** — stated faithfully to the original wording. A decision has the form "we will X." Vibes and leanings are not decisions.
