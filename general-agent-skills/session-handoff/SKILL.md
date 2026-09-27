@@ -14,6 +14,7 @@ Context dies when a session ends. A handoff note converts spent context into an 
 - Context is filling up — write the handoff *before* quality degrades, not at the last moment.
 - **Checkpoint at ~60–70% context.** Write a HANDOFF-draft while you are still sharp: goal, status, decisions so far, next step. The end-of-session handoff UPDATES the draft — it is never written from scratch at the last sliver. A draft you later revise beats a perfect handoff you were too degraded to write.
 - **Skimming your own reasoning is the trigger.** If you catch yourself skimming earlier reasoning instead of following it, you are past the checkpoint — stop and write the handoff NOW, before the next step.
+- **Observable-event trigger (primary).** After every 3rd substantive user-facing deliverable, or after every decision appended to `decisions.log`, append a checkpoint line to the HANDOFF-draft: goal, status, latest decision, next step. Deliverables and log appends are observable events — they fire whether or not you notice your own degradation. The 60–70% context rule is the backup, not the plan.
 
 ## Where it goes
 
