@@ -17,6 +17,8 @@ Context dies when a session ends. A handoff note converts spent context into an 
 
 A file, never chat: `HANDOFF.md` in the project or task folder. Chat scrollback is where handoffs go to die.
 
+Entry format, topic tagging, retraction, and retention follow `memory-protocol` — this skill defines what goes in the handoff, memory-protocol defines how it is stored.
+
 ## What it contains
 
 Copy `assets/handoff-template.md` and fill it in. The sections, in order of importance:
