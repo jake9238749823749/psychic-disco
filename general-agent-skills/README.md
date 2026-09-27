@@ -1,6 +1,6 @@
 # General Agent Skills Library — v2
 
-Fifteen general-purpose skills for agentic AI systems to inherit consistent working standards. Each skill is a folder with a `SKILL.md` (open Agent Skills format), plus reference files, templates, and append-only log files that act as persistent memory.
+Sixteen general-purpose skills for agentic AI systems to inherit consistent working standards. Each skill is a folder with a `SKILL.md` (open Agent Skills format), plus reference files, templates, and append-only log files that act as persistent memory.
 
 ## The library
 
@@ -21,8 +21,15 @@ Fifteen general-purpose skills for agentic AI systems to inherit consistent work
 | `meeting-to-actions` | Decisions/owners extraction without fabrication |
 | `data-analysis` | Data sanity checks, denominators, honest limits |
 | `estimation` ★ | Ranges not points; reference-class forecasting; planning-fallacy correction |
+| `delegation-verification` ★ | Worker return contract; coordinator verification duty (maker≠judge); failure protocol |
 
 ★ = new in v2
+
+## What changed in v2.1 (red-team hardening)
+
+- **delegation-verification** (new) — closes the multi-agent gap: worker return contract (claim, evidence, confidence, what-was-not-verified), coordinator verification duty, one-narrowed-retry-then-escalate failure protocol.
+- **skill-maintenance** — the loop now fires: mandatory log capture before the next user-facing message (hooked into output-standards' completion gate), two-incident promotion threshold, Gotcha citations with 90-day expiry.
+- **estimation** — ungrounded reference classes must be declared and widen the range by 50%; new Gotcha against lab-coat guessing.
 
 ## What changed in v2 (and why)
 
