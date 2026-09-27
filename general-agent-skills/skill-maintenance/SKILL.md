@@ -12,7 +12,7 @@ A recurring pattern from production skill libraries: the best skills start as a 
 1. **Notice** a trigger: repeated correction, a mistake that cost real time, or an explicit "remember this."
 2. **Log it — immediately.** Append one line to `corrections.log` in this skill's folder *before your next user-facing message*:
    `<date> | [topic-tags] | what went wrong | owning skill | proposed rule`
-   Entry format, tagging, retraction, and retention follow `memory-protocol`. Do not batch it for "later" — later is where corrections die. A trigger noticed but not logged is a trigger that never happened.
+   Entry format, tagging, retraction, and retention follow `memory-protocol` (`<date> | [tags] | body`, tombstone retractions, 90-day expiry). Do not batch it for "later" — later is where corrections die. A trigger noticed but not logged is a trigger that never happened.
 3. **Propose** a one-or-two-line Gotcha for the owning skill's SKILL.md. Show the exact diff. Never edit a skill silently.
 4. **Apply on approval.** In environments that reload skills live, SKILL.md edits can take effect during a running session.
 
