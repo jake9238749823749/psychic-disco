@@ -1,4 +1,4 @@
-# General Agent Skills Library — v2.2
+# General Agent Skills Library — v2.3
 
 Seventeen general-purpose skills for agentic AI systems to inherit consistent working standards. Each skill is a folder with a `SKILL.md` (open Agent Skills format), plus reference files, templates, and append-only log files that act as persistent memory.
 
@@ -8,9 +8,9 @@ Seventeen general-purpose skills for agentic AI systems to inherit consistent wo
 |-------|------------------|
 | `requirements-first` | Clarify-before-building gate: pin down goal, scope, done-criteria before any work |
 | `model-routing` | Cheapest-model-that-clears-the-bar routing; briefing protocol + template |
-| `session-handoff` ★ | Handoff notes so fresh sessions/models continue without re-discovery |
+| `session-handoff` ★ | Handoff notes; 60–70% checkpoint drafts, skepticism header |
 | `skill-maintenance` ★ | The self-improving loop: corrections → logged → one-line Gotcha upgrades |
-| `red-team-review` ★ | Adversarial final pass; iterate until findings degrade to nitpicks |
+| `red-team-review` ★ | Adversarial final pass; two-pass stop rule, anti-gaming |
 | `output-standards` | Universal definition-of-done; verify before asserting |
 | `debugging-playbook` | Reproduce-first, hypothesis-driven debugging; regression tests |
 | `code-review-standards` | Correctness → security → edges order; severity-labeled comments |
@@ -18,13 +18,21 @@ Seventeen general-purpose skills for agentic AI systems to inherit consistent wo
 | `research-methodology` | Source hierarchy, triangulation, confidence labels, stop rule |
 | `decision-analysis` | Reversibility triage, pre-mortems, persistent decisions.log |
 | `business-docs` | Status/proposal formats; numbers over adjectives; one ask per doc |
-| `meeting-to-actions` | Decisions/owners extraction without fabrication |
+| `meeting-to-actions` | Decisions/owners extraction without fabrication; merge candidacy closed (standalone) |
 | `data-analysis` | Data sanity checks, denominators, honest limits |
-| `estimation` ★ | Ranges not points; reference-class forecasting; planning-fallacy correction |
+| `estimation` ★ | Ranges not points; self-filling durations.log reference class |
 | `delegation-verification` ★ | Worker return contract; coordinator verification duty (maker≠judge); failure protocol |
 | `memory-protocol` ★ | Unified memory authority: store selection, entry format, tombstones, expiry, compaction |
 
 ★ = new since v2
+
+## What changed in v2.3 (first loop run, calibration, ungameable review)
+
+- **skill-maintenance** — the improvement loop executed for the first time: 3 genuine incidents logged to `corrections.log` (seed entry retired); no Gotcha promoted — all single incidents per the two-incident rule.
+- **estimation** — new self-filling `durations.log`: mandatory actual-deposits after every estimate, `uncalibrated` labels for the first 3 per category, 50% widening demoted to a bootstrap rule with an expiration condition.
+- **red-team-review** — gameable done-signal replaced with a two-pass stop rule (pass 2 targets only the top-severity finding, evidence required) plus an anti-gaming Gotcha; no third pass with the same reviewer.
+- **session-handoff** — degraded-author fix: HANDOFF-draft checkpoint at ~60–70% context, skepticism header first in the template, "skimming your own reasoning" as the write-it-now trigger.
+- **meeting-to-actions** — merge candidacy decided: stays standalone (enforceable integrity rules, extraction pipeline vs. document format, narrow trigger); 90-day tripwire recorded.
 
 ## What changed in v2.2 (memory unification + boundary repair)
 
