@@ -40,3 +40,4 @@ Assume the work is wrong somewhere; the job is to find where. Praise is out of s
 - Severity inflation makes reports unusable. Most findings are cosmetic; label them honestly or the fatal ones get ignored too.
 - The most dangerous flaw is usually in the sentence the author is proudest of. Check it first.
 - A pass that finds nothing without a completed checklist is not a pass — it is a skipped pass. Findings that get weaker across passes is evidence of reviewer fatigue, not work quality: stop and escalate to a fresh session instead of running a third pass with the same reviewer.
+- Severity deflation is the new gaming surface: if every pass-1 finding is a nitpick, the reviewer chose the labels, not the work. Distrust a clean pass-1 the way you'd distrust a finding-less pass.
