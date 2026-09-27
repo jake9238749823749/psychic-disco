@@ -3,6 +3,62 @@
 Long-form record of what changed, why, and what failure each change prevents.
 No praise without criticism: every entry names its own weakness.
 
+## v2.4 (2026-09-26) — loophole closures, ungameable severity, external tripwires
+
+This pass closed the v2.3 "brutal remainder": the two live loopholes the first loop run logged but couldn't fix, red-team severity-label gaming, the handoff checkpoint's missing external tripwire, and the v2.2 cross-reference indirection tax.
+
+### `delegation-verification`: "second run" loophole closed
+
+**Why.** The "Never self-verify" rule listed "a second run" as an acceptable deterministic check. A rerun of the same procedure by the same agent is self-verification in disguise — laundering with extra steps — and it directly weakened maker≠judge, the skill's load-bearing rule. This was corrections.log incident #2 from the v2.3 loop run: known, logged, live.
+
+**What it does.** The rule now names the loophole explicitly and forbids it: independent means a different session, a different agent instance, or a deterministic check *mechanically different* from the worker's method (tests, linters, re-execution with different inputs). New Gotcha: "If the method didn't change, the verification didn't happen."
+
+**Process note.** This is a direct defect fix, not a Gotcha promotion — the two-incident rule governs promotion of incident-derived rules from the log; it does not block repairing a known defect in a shipped skill. The distinction is recorded here so a future review doesn't misread the fix as rule-breaking.
+
+**Failure prevented.** Coordinator rubber-stamping worker output while holding a paper trail that claims independent verification.
+
+**Criticism.** "Mechanically different" still requires judgment — is re-running with different inputs different enough, or does it share the worker's flawed oracle? The rule pushes the ambiguity into a smaller box without eliminating it. And the fix depends on the coordinator *wanting* real verification; a coordinator determined to coast can still pick the weakest available independent check.
+
+### `memory-protocol`: document-store section with mandatory provenance
+
+**Why.** The protocol claimed a uniform entry format across "all stores," but HANDOFF.md is a 7-section document and doctrine.md is distilled prose — neither is log lines. The format section had no carve-out, so the protocol's own authority didn't cover its most-read artifact. Corrections.log incident #3.
+
+**What it does.** New "Document stores" section: every derived/distilled document opens with a mandatory provenance header (source log entries + dates, distillation date, next review/expiry date); body follows the owning skill's template; tags live in the header; retraction means a new version plus a tombstone in the source log (never in-place edits); expiry applies to the provenance — a doctrine.md whose sources all expired gets re-distilled or deleted at compaction. Entry format section re-scoped to log-line stores explicitly.
+
+**Failure prevented.** Derived documents becoming unsourced authority — doctrine.md cited as truth with no trail back to the evidence, the exact failure the protocol exists to prevent.
+
+**Criticism.** Provenance headers are only as honest as their author, and distillation is exactly where motivated reasoning hides — a distiller can cherry-pick which source entries to cite. The section constrains the *format* of honesty, not honesty itself. Also: no doctrine.md exists yet, so this section is currently untested machinery guarding a future artifact.
+
+### `red-team-review`: severity rubric kills label gaming
+
+**Why.** v2.3's two-pass stop rule moved the gaming to severity labels: a reviewer who wants out labels everything cosmetic in pass 1 and the apparatus ratifies a skipped review. Worse, the skill itself had a latent inconsistency — step 3 defined `[fatal]/[serious]/[cosmetic]` while step 5's stop rule referenced "nitpick," a label that didn't exist.
+
+**What it does.** Fixed four-level rubric with definitions and one-clause justification required per finding: fatal (wrong conclusion / actionable harm), major (materially weakens; fix before shipping), minor (polish; fix if cheap), nitpick (cosmetic; never blocks). Labels unified across steps (serious→major). Two new Rules: downgrades need evidence (pass 2 lowering a severity must state what changed — a severity drifting down with no cited reason is reviewer fatigue wearing the rubric), and a clean pass must be earned (zero above-nitpick findings valid only with a line-by-line completed checklist attached). New Gotcha: severity deflation is the new gaming surface — distrust a clean pass-1 the way you'd distrust a finding-less pass.
+
+**Failure prevented.** The ratified skipped review: a documented two-pass adversarial process that never threatened the work because the labels were chosen, not the findings.
+
+**Criticism.** The rubric is still self-applied — a reviewer can write a one-clause justification for anything ("cosmetic: phrasing"). The checklist backstop can be pencil-whipped. Gaming didn't die; it moved to justification quality, which is at least *visible* in the report — a tired reviewer's thin justifications are now auditable, which is the real win. The two-pass ceiling from v2.3 still stands, still trading depth for ungameability.
+
+### `session-handoff`: external tripwire + receiver distrust
+
+**Why.** The 60–70% checkpoint and the skimming trigger both relied on the degraded author monitoring itself — the original problem, moved earlier. A degraded author is, by definition, bad at self-observation.
+
+**What it does.** New primary trigger: after every 3rd substantive user-facing deliverable, or after every decision appended to decisions.log, append a checkpoint line to the HANDOFF-draft. Deliverables and log appends are observable events — they fire whether or not the author notices its own degradation. The 60–70% rule is demoted to backup. On the receiving end, distrust is now the default first step: verify the skepticism header's claims against the actual artifacts *before* acting; a handoff is a hypothesis about the work, not a record of it.
+
+**Failure prevented.** The never-written checkpoint (advice without a mechanical trigger) and the receiver inheriting false certainty from a confident-but-wrong handoff.
+
+**Criticism.** "Every 3rd deliverable" is a heuristic that will misfire — three trivial deliverables trigger a pointless checkpoint; one massive deliverable deserves one immediately. The receiver-distrust rule assumes the receiver has the context to re-verify; a cold-start cheap model may not be able to check the claims it's told to doubt, turning "verify first" into "stall first." And the skepticism header still depends on the author's honesty at the moment they're most incentivized to sound certain.
+
+### Indirection tax paid: payloads on every pointer
+
+**Why.** v2.1–v2.3 added cross-skill pointers everywhere (memory-protocol ×3, decision-analysis ×2, writing-standards ×1, plus hooks). A pointer that only says "see X" gets skipped when the agent is busy; a skipped rule is a dead rule. Centralization reduced drift risk but increased skip risk.
+
+**What it does.** Audited every cross-skill pointer added in v2.1–v2.3. Pointers that already carried their payload (decision-analysis ask-vs-test, requirements-first reversibility, model-routing brief-before-cheap-model) were kept as-is. Five naked or near-naked pointers got one-line payloads: decision-analysis, estimation (×2), session-handoff, skill-maintenance memory-protocol references now inline the format (`<date> | [tags] | body`, tombstone retractions, 90-day expiry); business-docs' BLUF pointer now states the rule inline. New forward rule in skill-maintenance: "No naked pointers — every cross-skill reference carries its one-line payload. The pointer names the authority; the payload delivers the content."
+
+**Failure prevented.** Format rules skipped because they lived one hop away — the agent writing a handoff never opening memory-protocol.
+
+**Criticism.** Payloads duplicate content, which reintroduces the drift the centralization was meant to kill — if memory-protocol's format ever changes, five payloads go stale. The bet is that format changes are rare and skips are common; that bet is unmeasured. The no-naked-pointers rule itself adds a line to every future cross-reference, a small tax on every edit forever.
+
 ## v2.3 (2026-09-26) — first real loop run, self-filling calibration, ungameable review
 
 ### `skill-maintenance`: the improvement loop runs for the first time
