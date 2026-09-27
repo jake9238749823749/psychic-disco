@@ -39,7 +39,7 @@ Copy `assets/handoff-template.md` and fill it in. The sections, in order of impo
 
 - Write for a competent stranger with zero context. If it assumes memory of this session, it failed.
 - One page maximum. A handoff nobody reads protects nothing.
-- On the receiving end: read `HANDOFF.md` first, restate step 1 back to the user, then act.
+- On the receiving end: distrust is the default first step. Read `HANDOFF.md`, then verify the skepticism header's claims against the actual artifacts *before* acting — a handoff is a hypothesis about the work, not a record of it. Restate step 1 back to the user only from what you re-verified, then act.
 
 ## Gotchas
 
