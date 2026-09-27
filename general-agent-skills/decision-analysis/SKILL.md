@@ -27,7 +27,7 @@ requirements-first asks questions; step 4 of the protocol runs tests. When both 
 
 ## Decision log (persistent memory)
 
-Append every protocol-level decision to `decisions.log` in this skill's folder — five lines: decision, date, options considered, reasoning, expected outcome + review date. Entry format, topic tagging, retraction, and retention follow `memory-protocol`; this skill defines what gets logged, memory-protocol defines how. Before analyzing a new decision, scan the log for similar past ones and check how expectations matched reality. Comparing expected vs. actual is how judgment improves, and the log is what lets future sessions inherit it.
+Append every protocol-level decision to `decisions.log` in this skill's folder — five lines: decision, date, options considered, reasoning, expected outcome + review date. Entry format, topic tagging, retraction, and retention follow `memory-protocol` (`<date> | [tags] | body`, tombstone retractions, 90-day expiry); this skill defines what gets logged, memory-protocol defines how. Before analyzing a new decision, scan the log for similar past ones and check how expectations matched reality. Comparing expected vs. actual is how judgment improves, and the log is what lets future sessions inherit it.
 
 ## Anti-patterns
 
