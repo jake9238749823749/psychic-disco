@@ -32,6 +32,8 @@ Assume the work is wrong somewhere; the job is to find where. Praise is out of s
 - Steelman the strongest counterargument before dismissing it; a weak version knocked down proves nothing.
 - If two full passes find nothing serious, say so and stop. Inventing findings to appear rigorous is its own failure.
 - On own output: fresh work reviewed by its author finds almost nothing. Re-read as a hostile stranger after a break, or hand it to a separate session.
+- **Downgrades need evidence.** If pass 2 lowers a finding's severity from pass 1, state what changed — the fix, the new evidence — in one clause. A severity that drifts down with no cited reason is reviewer fatigue wearing the rubric.
+- **A clean pass must be earned.** Zero above-nitpick findings is valid only if the checklist for the deliverable type was completed line-by-line and attached. A finding-less pass without it is a skipped pass, not a clean bill.
 
 ## Gotchas
 
