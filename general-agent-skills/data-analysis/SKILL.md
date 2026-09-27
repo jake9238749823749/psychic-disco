@@ -26,6 +26,10 @@ Report anomalies *before* the analysis. An interesting finding in unchecked data
 - **Precision matches confidence.** Dirty data does not earn four significant figures. Round to what is defensible.
 - **Correlation is labeled as such.** Causal language ("drove," "caused," "because of") requires a mechanism or an experiment, not a scatter plot.
 
+## Boundary with research-methodology
+
+Use data-analysis when the question is about data you hold — a CSV, a metrics export, survey results. Use research-methodology when the question is about the world — "is this true?", comparisons, landscapes, anything whose answer lives outside your files. For a statistics question: if the number comes from your data, start here (check the data first); if it needs an external source, use research-methodology. When both apply — your data contradicts the published numbers — run data-analysis first (is the data clean?), then research-methodology (is the world different than reported?). Never cite external statistics to explain your data without checking your data, and never generalize your dataset to the world without external triangulation.
+
 ## Output rules
 
 - Every chart or table gets one "so what" sentence. No naked exhibits.
