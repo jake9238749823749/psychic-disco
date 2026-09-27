@@ -10,7 +10,7 @@ A confident single number is the least useful estimate. The default failure is o
 ## Method
 
 1. **Decompose.** Break the whole into parts small enough to reason about (rough rule: nothing over a day of work, or 20% of the total, stays a single line). The sum of estimated parts beats one estimate of the whole, because it forces the hidden pieces into view.
-2. **Reference class first, then adjust.** Ask "how long did similar things actually take?" before "how long should this take?" The outside view (comparable past cases) beats the inside view (reasoning from this case's details), which is almost always too optimistic.
+2. **Reference class first, then adjust.** Ask "how long did similar things actually take?" before "how long should this take?" The outside view (comparable past cases) beats the inside view (reasoning from this case's details), which is almost always too optimistic. **If no recorded past durations exist for the reference class, say so explicitly and widen the range by 50%** — a reference class recalled from memory is inside view.
 3. **Give a range, not a point.** State low / likely / high. If forced to one number, give the high one — estimates skew optimistic far more often than pessimistic.
 4. **Surface the assumptions the estimate rests on.** "Assumes the API is documented; assumes no data migration." Each assumption is a place the number breaks. The estimate is only as good as its shakiest assumption.
 5. **Add a contingency for the unknown**, and label it. Novel/unclear work needs more; routine work needs less. Naming the buffer is honest; hiding it in inflated line items is not.
@@ -34,3 +34,4 @@ A confident single number is the least useful estimate. The default failure is o
 - The first number that comes to mind is the inside-view guess — anchor to reference class *before* saying it, or it contaminates everything after.
 - "Rough estimate" is not license to skip decomposition; it's where skipping it hurts most, because there's no detail to catch the omission.
 - An estimate with no stated assumptions can't be checked, defended, or safely relied on. No naked numbers.
+- A reference class with no cited source is a guess wearing a lab coat. "Similar projects take two weeks" without a source is the inside view with better branding.
