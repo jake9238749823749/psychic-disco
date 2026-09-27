@@ -10,9 +10,9 @@ A recurring pattern from production skill libraries: the best skills start as a 
 ## The loop
 
 1. **Notice** a trigger: repeated correction, a mistake that cost real time, or an explicit "remember this."
-2. **Log it** — append one line to `corrections.log` in this skill's folder:
+2. **Log it — immediately.** Append one line to `corrections.log` in this skill's folder *before your next user-facing message*:
    `<date> | what went wrong | owning skill | proposed rule`
-   The log is append-only memory; future sessions read it to spot patterns.
+   The log is append-only memory; future sessions read it to spot patterns. Do not batch it for "later" — later is where corrections die. A trigger noticed but not logged is a trigger that never happened.
 3. **Propose** a one-or-two-line Gotcha for the owning skill's SKILL.md. Show the exact diff. Never edit a skill silently.
 4. **Apply on approval.** In environments that reload skills live, SKILL.md edits can take effect during a running session.
 
@@ -33,7 +33,9 @@ A rule earns its context cost only if it is:
 
 ## Periodic review (monthly, or when the log hits ~10 entries)
 
-- Promote repeated log entries into rules.
+- **Two-incident promotion.** No Gotcha is added until two independent log entries cite the same trap. One-off incidents stay in the log; only repeats earn context cost. This kills overfitting to a single bad afternoon.
+- **Cite the evidence.** Every Gotcha cites the log dates that produced it (e.g. `<!-- 2026-09-26, 2026-10-02 -->`). A Gotcha with no citations is a hunch, not a rule.
+- **90-day expiry.** Any Gotcha with no new citations in 90 days is deleted. Stale rules cost context and mislead; the raw log keeps the history.
 - Delete rules that never fire, and rules the user keeps overriding — an overridden rule is a wrong rule.
 - Split any SKILL.md drifting past ~150 lines: move detail to `references/`.
 
