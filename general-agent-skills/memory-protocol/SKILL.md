@@ -34,6 +34,16 @@ Applies to `corrections.log` and `decisions.log`. `HANDOFF.md` is a document, no
 - **Topic tags** are 1–3 lowercase slugs (`auth-flow`, `estimation`, `multi-agent`). Tags are the index; without them every consultation is a full scan. Reuse existing tags before inventing new ones.
 - **Body** follows the owning skill's field convention.
 
+## Document stores (HANDOFF.md, doctrine.md, references/ pages)
+
+Some stores are documents, not log lines. For them:
+
+- **Provenance header, mandatory.** Every derived or distilled document opens with: source log entries (dates + which log), distillation date, and next review/expiry date. A derived document without provenance is unsourced authority — the exact failure this protocol exists to prevent.
+- **Body follows the owning skill's template.** memory-protocol governs provenance and retention; the owning skill governs sections.
+- **Tags live in the header**, not per line — one tag set covers the whole document.
+- **Retraction = new version + tombstone.** Never edit a derived document in place to change its claims. Append a superseding version note citing the new evidence, and tombstone the superseded claims in the source log.
+- **Expiry applies to the provenance.** A `doctrine.md` whose source entries have all expired gets re-distilled or deleted at compaction.
+
 ## Retractions: tombstones, never edits
 
 To retract or supersede an entry, append a new line:
