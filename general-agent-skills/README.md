@@ -1,4 +1,4 @@
-# General Agent Skills Library — v2.3
+# General Agent Skills Library — v2.4
 
 Seventeen general-purpose skills for agentic AI systems to inherit consistent working standards. Each skill is a folder with a `SKILL.md` (open Agent Skills format), plus reference files, templates, and append-only log files that act as persistent memory.
 
@@ -8,9 +8,9 @@ Seventeen general-purpose skills for agentic AI systems to inherit consistent wo
 |-------|------------------|
 | `requirements-first` | Clarify-before-building gate: pin down goal, scope, done-criteria before any work |
 | `model-routing` | Cheapest-model-that-clears-the-bar routing; briefing protocol + template |
-| `session-handoff` ★ | Handoff notes; 60–70% checkpoint drafts, skepticism header |
-| `skill-maintenance` ★ | The self-improving loop: corrections → logged → one-line Gotcha upgrades |
-| `red-team-review` ★ | Adversarial final pass; two-pass stop rule, anti-gaming |
+| `session-handoff` ★ | Handoff notes; observable-event checkpoint trigger, receiver distrust-first |
+| `skill-maintenance` ★ | The self-improving loop: corrections → logged → one-line Gotcha upgrades; no-naked-pointers rule |
+| `red-team-review` ★ | Adversarial final pass; two-pass stop rule, severity rubric, downgrade-evidence rule |
 | `output-standards` | Universal definition-of-done; verify before asserting |
 | `debugging-playbook` | Reproduce-first, hypothesis-driven debugging; regression tests |
 | `code-review-standards` | Correctness → security → edges order; severity-labeled comments |
@@ -21,10 +21,18 @@ Seventeen general-purpose skills for agentic AI systems to inherit consistent wo
 | `meeting-to-actions` | Decisions/owners extraction without fabrication; merge candidacy closed (standalone) |
 | `data-analysis` | Data sanity checks, denominators, honest limits |
 | `estimation` ★ | Ranges not points; self-filling durations.log reference class |
-| `delegation-verification` ★ | Worker return contract; coordinator verification duty (maker≠judge); failure protocol |
-| `memory-protocol` ★ | Unified memory authority: store selection, entry format, tombstones, expiry, compaction |
+| `delegation-verification` ★ | Worker return contract; coordinator verification duty (maker≠judge); second-run loophole closed |
+| `memory-protocol` ★ | Unified memory authority: store selection, entry format, tombstones, expiry, compaction, document provenance |
 
 ★ = new since v2
+
+## What changed in v2.4 (loophole closures, ungameable severity, external tripwires)
+
+- **delegation-verification** — "second run" self-verify loophole closed: independent now means a different session/agent or a *mechanically different* deterministic check; direct defect fix per corrections.log (two-incident rule governs promotions, not bug fixes).
+- **memory-protocol** — new document-store section: mandatory provenance headers on derived documents, versioned retraction, expiry on provenance.
+- **red-team-review** — fixed severity rubric (fatal/major/minor/nitpick, one-clause justification); downgrades need evidence; a clean pass must be earned with a line-by-line checklist; Gotcha against severity deflation.
+- **session-handoff** — observable-event checkpoint trigger (every 3rd deliverable or decisions.log append) as the primary tripwire; receiver distrust-first: verify the skepticism header against artifacts before acting.
+- **Indirection tax paid** — one-line payloads added to all naked cross-skill pointers; new no-naked-pointers rule in skill-maintenance.
 
 ## What changed in v2.3 (first loop run, calibration, ungameable review)
 
