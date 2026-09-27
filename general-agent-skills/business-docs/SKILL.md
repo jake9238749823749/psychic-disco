@@ -9,7 +9,7 @@ Every business document exists to cause a decision or transfer status. Identify 
 
 ## Universal rules
 
-- **Lead with the point** — the rule lives in `writing-standards` ("Lead with the point (BLUF)"). This skill owns document structure, not prose rules; one home per rule.
+- **Lead with the point** — first sentence carries the conclusion or the ask; background comes after, for those who need it. (Full rule lives in `writing-standards`.) This skill owns document structure, not prose rules; one home per rule.
 - **Numbers over adjectives.** "Significant growth" → "up 34% QoQ." Every number has a source or is labeled *estimate*.
 - **One ask per document.** Two asks compete; the reader picks neither.
 - **Length caps are real**: status ≤ 1 page, one-pager = literally one page, exec summary ≤ 5 sentences.
