@@ -23,7 +23,7 @@ Assume the work is wrong somewhere; the job is to find where. Praise is out of s
   - `[major]` — materially weakens the deliverable (a section that doesn't hold up, a number that can't be defended). Fix before shipping.
   - `[minor]` — polish: unclear phrasing, weak structure, missing caveat. Fix if cheap.
   - `[nitpick]` — cosmetic: typos, formatting, style. Never blocks.
-4. **Fix in severity order, then one targeted pass.** Fix findings fatal → serious → cosmetic. Pass 2 checks ONLY the single highest-severity finding from pass 1: was it actually fixed? Re-verify with evidence — do not re-read the whole work.
+4. **Fix in severity order, then one targeted pass.** Fix findings fatal → major → minor → nitpick. Pass 2 checks ONLY the single highest-severity finding from pass 1: was it actually fixed? Re-verify with evidence — do not re-read the whole work.
 5. **Stop rule.** Done when (a) pass 2 answers the top-risk question with evidence, or (b) two passes complete with no above-nitpick findings AND the completed checklist is attached showing what was checked. No third pass with the same reviewer.
 6. **Report both lists**: what was fixed, and what was attacked but held. Surviving objections are what justify confidence.
 
