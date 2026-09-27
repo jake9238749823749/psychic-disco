@@ -1,6 +1,6 @@
-# General Agent Skills Library — v2
+# General Agent Skills Library — v2.2
 
-Sixteen general-purpose skills for agentic AI systems to inherit consistent working standards. Each skill is a folder with a `SKILL.md` (open Agent Skills format), plus reference files, templates, and append-only log files that act as persistent memory.
+Seventeen general-purpose skills for agentic AI systems to inherit consistent working standards. Each skill is a folder with a `SKILL.md` (open Agent Skills format), plus reference files, templates, and append-only log files that act as persistent memory.
 
 ## The library
 
@@ -22,8 +22,19 @@ Sixteen general-purpose skills for agentic AI systems to inherit consistent work
 | `data-analysis` | Data sanity checks, denominators, honest limits |
 | `estimation` ★ | Ranges not points; reference-class forecasting; planning-fallacy correction |
 | `delegation-verification` ★ | Worker return contract; coordinator verification duty (maker≠judge); failure protocol |
+| `memory-protocol` ★ | Unified memory authority: store selection, entry format, tombstones, expiry, compaction |
 
-★ = new in v2
+★ = new since v2
+
+## What changed in v2.2 (memory unification + boundary repair)
+
+- **memory-protocol** (new) — unified memory authority for all three stores (HANDOFF.md, corrections.log, decisions.log): which-store decision tree, standard entry format with topic tags, tombstone retractions (never rewrite history), 90-day expiry generalized, compaction trigger (50 entries / 180 days) distilling `doctrine.md`.
+- **skill-maintenance / session-handoff / decision-analysis** — memory format and retention centralized under memory-protocol; each skill keeps its domain content (what to log), memory-protocol owns the mechanics (how to store it).
+- **business-docs** — BLUF removed (single home is now `writing-standards`); seeded Gotchas added (was zero).
+- **meeting-to-actions** — seeded Gotchas added (was zero).
+- **research-methodology ↔ data-analysis** — mirrored invocation boundary: which skill for world-questions vs. data-questions, statistics-question routing, contradiction protocol (data first, then world).
+- **decision-analysis** — ask-vs-test arbitration rule (reversibility triage decides); **requirements-first** — reversibility triage and ask-vs-test now cross-reference decision-analysis instead of re-deriving.
+- **CHANGELOG.md** (new) — long-form record of every version with rationale and criticism per change.
 
 ## What changed in v2.1 (red-team hardening)
 
