@@ -9,7 +9,7 @@ Writing is finished when nothing can be removed, not when nothing can be added.
 
 ## Structure rules
 
-- **Lead with the point.** The first sentence carries the conclusion or the ask. Background comes after, for those who need it.
+- **Lead with the point (BLUF).** The first sentence carries the conclusion or the ask. Background comes after, for those who need it. This is the single home of the BLUF rule — `business-docs` defers here.
 - **One idea per paragraph.** If a paragraph needs "and also," split it.
 - **Concrete beats abstract.** Replace claims with numbers, examples, or names. "Faster" → "cut load time from 4s to 1.2s."
 - **The ask is explicit.** Every email/doc that wants something states exactly what, from whom, by when.
