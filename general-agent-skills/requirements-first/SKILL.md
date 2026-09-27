@@ -20,7 +20,7 @@ Ask the *fewest* questions that remove the *most* uncertainty. One per turn, so 
 3. **Hard constraints** — what must it do, avoid, integrate with, or stay under (time, budget, stack, format)?
 4. **What it is *not*** — the single fastest scope-cutter. "Out of scope for now: X, Y."
 
-Stop asking the moment further answers wouldn't change what you build. Over-interrogation is its own failure.
+Stop asking the moment further answers wouldn't change what you build. Over-interrogation is its own failure. And before the third question, apply `decision-analysis`'s ask-vs-test rule: if the cheapest test costs less than another round-trip, run the test instead of asking.
 
 ## Propose before you build
 
@@ -34,7 +34,7 @@ Play back the agreed spec in 2–4 lines — goal, done-criteria, key constraint
 
 - The user already gave a detailed, unambiguous spec — don't re-interrogate; just restate your understanding in one line and proceed.
 - The user explicitly says "just do it" / "your call" — make reasonable assumptions, **state them inline**, and build.
-- The task is trivial or fully reversible — a wrong guess costs seconds, so guess.
+- The task is trivial or fully reversible — run `decision-analysis` Step 0 (reversibility triage) instead of re-deriving it here; if it says decide-in-minutes, guess, state the assumption inline, and build.
 
 ## Gotchas
 
