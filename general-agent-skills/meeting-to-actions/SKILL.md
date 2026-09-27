@@ -37,6 +37,14 @@ CONTEXT
 - <number, commitment, or assumption worth keeping>
 ```
 
+## Gotchas
+
+<!-- Seeded patterns — not yet observed in the wild. skill-maintenance replaces these with real incidents as they occur. -->
+
+- "We'll circle back" extracted as a decision. It is a deferred non-decision — log it under Open Questions with the trigger that reopens it, or it becomes a zombie that resurfaces every meeting.
+- An action item with neither deadline nor blocker silently dies. "Waiting on X" is a blocker; "sometime" is not. Every action needs one of the two.
+- Verbatim commitments get upgraded in the recap email. "I'll try" becoming "will deliver by Friday" manufactures a promise the speaker never made — the recap is where fabrication risk peaks, because the pressure to sound decisive peaks there.
+
 ## Offer next
 
 After the summary, offer exactly one follow-up: draft the recap email, or add the actions to a task list — whichever the context suggests. Do not do both unprompted.
