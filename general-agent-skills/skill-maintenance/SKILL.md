@@ -31,6 +31,10 @@ A rule earns its context cost only if it is:
 - Skill fired at the wrong time (or failed to fire) → edit that skill's **description**, not its body.
 - No skill owns it → propose a new skill of ~5 lines plus the one gotcha. Let it earn growth.
 
+## Cross-skill references
+
+- **No naked pointers.** Every reference to another skill carries its one-line payload — the rule, format, or decision the reader needs — so the agent gets 80% of the value without opening the second file. The pointer names the authority; the payload delivers the content. A reference that only says "see X" will be skipped, and a skipped rule is a dead rule.
+
 ## Periodic review (monthly, or when the log hits ~10 entries)
 
 - **Two-incident promotion.** No Gotcha is added until two independent log entries cite the same trap. One-off incidents stay in the log; only repeats earn context cost. This kills overfitting to a single bad afternoon.
