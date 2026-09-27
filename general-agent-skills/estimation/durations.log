@@ -1,0 +1,6 @@
+# durations.log — estimation's reference class. Read newest-first, filter to similar task categories.
+# Format: <date> | <task category> | <estimated range> | <actual> | <error ratio>
+# error ratio = actual ÷ likely estimate. Example: 2026-09-26 | api-integration | 2–4 days | 6 days | 1.5x over
+# Category doubles as the topic tag. First 3 entries per category are labeled uncalibrated.
+# Entries with no recorded actual are incomplete — go back and fill them in. No estimate is done until its actual is logged.
+# Storage format, tagging, and retention follow memory-protocol.
