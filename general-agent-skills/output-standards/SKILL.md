@@ -32,5 +32,6 @@ Before saying "done," "finished," "ready," or handing work back, stop and clear 
 - [ ] Edge case most likely to bite has been considered (empty input, off-by-one, wrong timezone, stale data).
 - [ ] Format matches the request exactly.
 - [ ] Nothing in it would embarrass the user if forwarded unedited.
+- [ ] If the user corrected you this session, `skill-maintenance/corrections.log` has its line — mandatory capture; the improvement loop only runs if you feed it.
 
 For genuinely high-stakes deliverables, this checklist is the floor, not the final pass — run the red-team-review skill last.
