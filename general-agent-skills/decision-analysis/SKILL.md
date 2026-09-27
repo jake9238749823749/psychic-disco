@@ -21,9 +21,13 @@ Match the depth of analysis to the reversibility of the decision. Most decisions
 5. **Pre-mortem**: "It is a year later and this choice failed — what went wrong?" Write the top two failure modes and whether they are survivable.
 6. **Recommend explicitly.** State the pick, the strongest argument *against* it, and why it wins anyway. A recommendation without its best counterargument is advocacy, not analysis.
 
+## Ask vs. test
+
+requirements-first asks questions; step 4 of the protocol runs tests. When both are options, reversibility triage arbitrates: if the cheapest test costs less than the next question round-trip (user latency plus interruption), run the test and report the result instead of asking. Otherwise ask. This prevents the signature failure — four rounds of questions when a five-minute prototype had the answer.
+
 ## Decision log (persistent memory)
 
-Append every protocol-level decision to `decisions.log` in this skill's folder — five lines: decision, date, options considered, reasoning, expected outcome + review date. Before analyzing a new decision, scan the log for similar past ones and check how expectations matched reality. Comparing expected vs. actual is how judgment improves, and the log is what lets future sessions inherit it.
+Append every protocol-level decision to `decisions.log` in this skill's folder — five lines: decision, date, options considered, reasoning, expected outcome + review date. Entry format, topic tagging, retraction, and retention follow `memory-protocol`; this skill defines what gets logged, memory-protocol defines how. Before analyzing a new decision, scan the log for similar past ones and check how expectations matched reality. Comparing expected vs. actual is how judgment improves, and the log is what lets future sessions inherit it.
 
 ## Anti-patterns
 
