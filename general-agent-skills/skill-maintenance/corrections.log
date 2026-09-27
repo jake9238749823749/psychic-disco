@@ -1,4 +1,6 @@
 # Append-only corrections log. Format: <date> | what went wrong | owning skill | proposed rule
 # Read this before periodic reviews. Promote repeated entries into skill Gotchas.
 
-2026-07-06 | (seed entry) library created; no incidents yet | skill-maintenance | delete this line at first real entry
+2026-09-26 | [code-generation] | v2.1 authoring script wrote literal \u2260 (backslash-u) instead of the ≠ character into delegation-verification/SKILL.md; caught by a re-read and fixed before pushing | skill-maintenance | when generating file content programmatically, use literal characters — unicode escapes in the generator language do not survive the write
+2026-09-26 | [multi-agent] | delegation-verification 'Never self-verify' rule lists 'a second run' as an acceptable deterministic check; a rerun of the same procedure by the same method is self-verification in disguise and weakens maker≠judge | delegation-verification | deterministic checks must be mechanically different from the worker's method; rerunning the same procedure is not verification
+2026-09-26 | [memory] | memory-protocol claims a uniform entry format (<date> | [tags] | body) across 'all stores,' but HANDOFF.md is a full document with 7 sections, not log lines; the protocol has no carve-out for document-shaped stores | memory-protocol | entry format section must distinguish log-line stores from document stores and specify what format, tagging, and retraction mean for each
