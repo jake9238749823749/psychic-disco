@@ -1,5 +1,11 @@
 # HANDOFF — <task name> — <date>
 
+## What I may have gotten wrong (read this first)
+
+1. <Claim from this session you are least sure of, stated plainly>
+2. <…>
+3. <…>
+
 **Goal:** <one sentence — the outcome being pursued>
 **Status:** <on track / blocked on X / N of M steps done>
 
