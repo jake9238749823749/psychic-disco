@@ -32,7 +32,7 @@ Every estimate you produce is a deposit; every actual you record is interest. Th
 - **Mandatory deposit.** After ANY task you estimated, append the actual outcome — no exceptions. Even when it was right, even when it was embarrassing, even when the session is ending. An estimate without a recorded actual is a prediction that taught nothing.
 - **Reading it.** For a new estimate, scan newest-first for the same task category. 3+ similar entries is a calibrated reference class: report the median error ratio as your adjustment factor.
 - **Cold start.** The first 3 estimates in any category are explicitly labeled `uncalibrated`. The label is the honesty mechanism while the data accumulates.
-- Storage format, tagging, and retention follow `memory-protocol`.
+- Storage format, tagging, and retention follow `memory-protocol` (`<date> | [tags] | body`, tombstone retractions, 90-day expiry).
 
 ## Output format
 
