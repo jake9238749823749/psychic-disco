@@ -24,9 +24,11 @@ Three stores, one protocol. Every persistent memory in this library follows the 
 
 Two stores can fire in one session — a corrected decision at session end lands in both logs. That is correct; they serve different readers.
 
-## Entry format (all stores)
+## Entry format (log-line stores)
 
 `<date> | [topic-tags] | <body per owning skill's convention>`
+
+Applies to `corrections.log` and `decisions.log`. `HANDOFF.md` is a document, not log lines — see Document stores below.
 
 - **Date** is ISO (`2026-09-26`), always first — expiry and ordering depend on it.
 - **Topic tags** are 1–3 lowercase slugs (`auth-flow`, `estimation`, `multi-agent`). Tags are the index; without them every consultation is a full scan. Reuse existing tags before inventing new ones.
