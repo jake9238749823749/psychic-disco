@@ -33,6 +33,9 @@ A result missing any of the four is incomplete. Do not integrate it.
 
 ## Gotchas
 
+<!-- seeded -->
+<!-- seeded: 2026-07-06 (v2, date inferred from CHANGELOG) -->
+
 - "The worker sounded confident" is not verification. Confidence is a property of the text, not the work.
 - Splitting work across N workers multiplies the coordinator's verification duty, it does not divide it. Five unchecked workers produce five times the garbage, not five times the output.
 - A worker that reports "done" with no evidence section has reported nothing. Send it back.
