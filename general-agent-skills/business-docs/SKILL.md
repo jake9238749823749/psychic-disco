@@ -42,7 +42,8 @@ Decision needed by: <date, and from whom>
 
 ## Gotchas
 
-<!-- Seeded patterns — not yet observed in the wild. skill-maintenance replaces these with real incidents as they occur. -->
+<!-- seeded -->
+<!-- seeded: 2026-07-06 (v2, date inferred from CHANGELOG) -->
 
 - A status update with three asks gets zero decisions. Readers triage multiple asks by effort and pick none — "one ask per document" is triage mechanics, not a style preference.
 - A proposal that buries cost below the recommendation gets approved, then re-litigated. Cost discovered after the yes reads as a trap; put cost in the same visual block as the recommendation.
