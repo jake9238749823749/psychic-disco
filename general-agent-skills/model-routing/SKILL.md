@@ -49,6 +49,9 @@ Use the fill-in template in `references/brief-template.md` when drafting a brief
 
 ## Gotchas
 
+<!-- seeded -->
+<!-- seeded: 2026-07-06 (v2, date inferred from CHANGELOG) -->
+
 - Escalating the model without upgrading the brief reproduces the same failure at higher cost. Rewrite the brief first; escalate second.
 - Top-tier models over-deliver by default: cap scope explicitly ("plan only", "diff only") or pay for output nobody asked for.
 - When switching models mid-task, have the outgoing model write a handoff first (see the session-handoff skill) — its accumulated reasoning is worth more than its remaining tokens.
