@@ -2,6 +2,15 @@
 
 Seventeen general-purpose skills for agentic AI systems to inherit consistent working standards. Each skill is a folder with a `SKILL.md` (open Agent Skills format), plus reference files, templates, and append-only log files that act as persistent memory.
 
+## The open standard (draft) + registry
+
+This repo is published as the **open reference standard** for agent skills — the Schelling point where skills are discovered, compared, and certified — not just another template to copy.
+
+- **`STANDARD.md`** — the draft standard (v0.1, **candidate**): skill manifest format, skill anatomy, eval protocol (maker≠judge, red-team two-pass, severity rubric), versioning rules, and certification levels (candidate → reviewed → certified).
+- **`registry/index.json`** — machine-readable index of all 17 skills: name, path, version, description, status. Generated from the repo; if a skill folder exists and isn't listed, the index is wrong.
+
+**Honest status:** the standard is a draft and every skill is currently `candidate` — v2.4 has not had an independent review yet. Nothing here claims certified, GREEN, or final. See `STANDARD.md` §6.
+
 ## The library
 
 | Skill | What it enforces |
