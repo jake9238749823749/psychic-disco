@@ -17,9 +17,9 @@ This repo is published as the **open reference standard** for agent skills — t
 |-------|------------------|
 | `requirements-first` | Clarify-before-building gate: pin down goal, scope, done-criteria before any work |
 | `model-routing` | Cheapest-model-that-clears-the-bar routing; briefing protocol + template |
-| `session-handoff` ★ | Handoff notes; observable-event checkpoint trigger, receiver distrust-first |
-| `skill-maintenance` ★ | The self-improving loop: corrections → logged → one-line Gotcha upgrades; no-naked-pointers rule |
-| `red-team-review` ★ | Adversarial final pass; two-pass stop rule, severity rubric, downgrade-evidence rule |
+| `session-handoff` | Handoff notes; observable-event checkpoint trigger, receiver distrust-first |
+| `skill-maintenance` | The self-improving loop: corrections → logged → one-line Gotcha upgrades; no-naked-pointers rule |
+| `red-team-review` | Adversarial final pass; two-pass stop rule, severity rubric, downgrade-evidence rule |
 | `output-standards` | Universal definition-of-done; verify before asserting |
 | `debugging-playbook` | Reproduce-first, hypothesis-driven debugging; regression tests |
 | `code-review-standards` | Correctness → security → edges order; severity-labeled comments |
@@ -29,7 +29,7 @@ This repo is published as the **open reference standard** for agent skills — t
 | `business-docs` | Status/proposal formats; numbers over adjectives; one ask per doc |
 | `meeting-to-actions` | Decisions/owners extraction without fabrication; merge candidacy closed (standalone) |
 | `data-analysis` | Data sanity checks, denominators, honest limits |
-| `estimation` ★ | Ranges not points; self-filling durations.log reference class |
+| `estimation` | Ranges not points; self-filling durations.log reference class |
 | `delegation-verification` ★ | Worker return contract; coordinator verification duty (maker≠judge); second-run loophole closed |
 | `memory-protocol` ★ | Unified memory authority: store selection, entry format, tombstones, expiry, compaction, document provenance |
 
@@ -89,8 +89,8 @@ Based on field-tested skill-library patterns from production agent deployments a
 Copy the skill folders into the skills directory used by your agent environment:
 
 ```bash
-unzip general-agent-skills-v2.zip
-cp -r general-agent-skills/*/ <agent-skills-dir>/
+git clone https://github.com/jake9238749823749/psychic-disco.git
+cp -r psychic-disco/general-agent-skills/*/ <agent-skills-dir>/
 ```
 
 For one project only, copy the folders into that project's skills directory. SKILL.md edits take effect live in environments that reload skills during a running session. The `.log` files inside skills are writable working memory — keep them with the skill folders.
