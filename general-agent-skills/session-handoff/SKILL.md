@@ -43,5 +43,8 @@ Copy `assets/handoff-template.md` and fill it in. The sections, in order of impo
 
 ## Gotchas
 
+<!-- seeded -->
+<!-- seeded: 2026-07-06 (v2, date inferred from CHANGELOG) -->
+
 - A handoff written at the last sliver of context is written by a degraded author. Write it while there is still room to think.
 - "Refactored the auth flow" is not a handoff entry. "Moved token refresh into middleware (commit a1b2c3) because the old inline version raced on concurrent requests" is.
