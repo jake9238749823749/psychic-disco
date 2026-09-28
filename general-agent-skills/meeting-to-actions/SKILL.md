@@ -49,7 +49,8 @@ CONTEXT
 
 ## Gotchas
 
-<!-- Seeded patterns — not yet observed in the wild. skill-maintenance replaces these with real incidents as they occur. -->
+<!-- seeded -->
+<!-- seeded: 2026-07-06 (v2, date inferred from CHANGELOG) -->
 
 - "We'll circle back" extracted as a decision. It is a deferred non-decision — log it under Open Questions with the trigger that reopens it, or it becomes a zombie that resurfaces every meeting.
 - An action item with neither deadline nor blocker silently dies. "Waiting on X" is a blocker; "sometime" is not. Every action needs one of the two.
