@@ -38,6 +38,9 @@ Play back the agreed spec in 2–4 lines — goal, done-criteria, key constraint
 
 ## Gotchas
 
+<!-- seeded -->
+<!-- seeded: 2026-07-06 (v2, date inferred from CHANGELOG) -->
+
 - The instinct to look helpful by immediately producing something is exactly the failure this gate prevents. Resist the first-turn artifact when scope is unclear.
 - "Any preferences?" as a single vague catch-all gets a vague answer. Ask specific, answerable questions.
 - Clarifying is not stalling only if it converges. If you've asked twice and still can't start, you're over-scoping — make an assumption, state it, and build.
