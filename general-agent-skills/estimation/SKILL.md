@@ -43,6 +43,9 @@ Every estimate you produce is a deposit; every actual you record is interest. Th
 
 ## Gotchas
 
+<!-- seeded -->
+<!-- seeded: 2026-07-06 (v2, date inferred from CHANGELOG) -->
+
 - The first number that comes to mind is the inside-view guess — anchor to reference class *before* saying it, or it contaminates everything after.
 - "Rough estimate" is not license to skip decomposition; it's where skipping it hurts most, because there's no detail to catch the omission.
 - An estimate with no stated assumptions can't be checked, defended, or safely relied on. No naked numbers.
