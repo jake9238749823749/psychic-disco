@@ -45,5 +45,8 @@ A rule earns its context cost only if it is:
 
 ## Gotchas
 
+<!-- seeded -->
+<!-- seeded: 2026-07-06 (v2, date inferred from CHANGELOG) -->
+
 - A rule drafted mid-frustration is usually too broad. Write the narrow version that covers the actual incident; widen it only if it recurs.
 - Two similar rules in one skill means neither is being read. Merge them.
